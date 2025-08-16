@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Threaded Cab Booking System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚗 Cab Booking System</h1>
+        </div>
+
+        <div class="main-content">
+            <div class="control-panel">
+                <div class="section">
+                    <h2>Add New Cab</h2>
+                    <div class="form-group">
+                        <label for="cabId">Cab ID</label>
+                        <input type="number" id="cabId" placeholder="Enter cab ID">
+                    </div>
+                    <div class="form-group">
+                        <label for="driverName">Driver Name</label>
+                        <input type="text" id="driverName" placeholder="Enter driver name">
+                    </div>
+                    <button class="btn" onclick="addCab()">Add Cab</button>
+                </div>
+
+                <div class="section">
+                    <h2>Add New Customer</h2>
+                    <div class="form-group">
+                        <label for="customerId">Customer ID</label>
+                        <input type="number" id="customerId" placeholder="Enter customer ID">
+                    </div>
+                    <div class="form-group">
+                        <label for="customerName">Customer Name</label>
+                        <input type="text" id="customerName" placeholder="Enter customer name">
+                    </div>
+                    <button class="btn" onclick="addCustomer()">Add Customer</button>
+                </div>
+
+                <div class="section">
+                    <h2>Book a Cab</h2>
+                    <div class="form-group">
+                        <label for="bookCustomerId">Customer ID</label>
+                        <input type="number" id="bookCustomerId" placeholder="Enter customer ID">
+                    </div>
+                    <div class="form-group">
+                        <label for="bookCabId">Cab ID</label>
+                        <input type="number" id="bookCabId" placeholder="Enter cab ID">
+                    </div>
+                    <button class="btn btn-book" onclick="bookCab()">
+                        <span id="bookingText">Book Cab Now</span>
+                        <span id="bookingLoader" class="loading" style="display: none;"></span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="display-panel">
+                <div class="section">
+                    <h2>Available Cabs</h2>
+                    <div id="cabsDisplay" class="cab-grid">
+                        <p style="grid-column: 1 / -1; text-align: center; color: #718096;">No cabs added yet. Add some cabs to get started!</p>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>Registered Customers</h2>
+                    <div id="customersDisplay" class="customer-list">
+                        <p style="grid-column: 1 / -1; text-align: center; color: #718096;">No customers registered yet.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="display-panel">
+            <h2>Activity Log</h2>
+            <div id="activityLog" class="activity-log">
+                <div class="log-entry">
+                    <div class="log-time">System initialized</div>
+                    <div>Welcome to the Multi-Threaded Cab Booking System! Start by adding cabs and customers.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
