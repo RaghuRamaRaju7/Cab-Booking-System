@@ -76,15 +76,16 @@ function bookCab() {
         if (cab.isAvailable) {
             cab.isAvailable = false;
             updateCabsDisplay();
-            logActivity(`Booking confirmed! ${customer.customerName} got Cab ID ${cab.cabId} driven by ${cab.driverName}.`, "success");
+            logActivity(`✅ Booking confirmed! ${customer.customerName} got Cab ID ${cab.cabId} driven by ${cab.driverName}.`, "success");
 
+            // Keep cab booked for 10 seconds before making it available again
             setTimeout(() => {
                 cab.isAvailable = true;
                 updateCabsDisplay();
-                logActivity(`Cab ID ${cab.cabId} is now available again.`, "success");
-            }, 5000);
+                logActivity(`🚖 Cab ID ${cab.cabId} is now available again.`, "success");
+            }, 10000);
         } else {
-            logActivity(`Sorry ${customer.customerName}, Cab ID ${cab.cabId} is already booked.`, "error");
+            logActivity(`❌ Sorry ${customer.customerName}, Cab ID ${cab.cabId} is already booked.`, "error");
         }
 
         bookingText.style.display = "inline";
